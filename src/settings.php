@@ -11,9 +11,16 @@ return [
 
         // Monolog settings
         'logger' => [
-            'name' => 'slim-app',
+            'name' => 'ihe-sole',
             'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
+        ],
+        
+        'db' => [
+            'host' => 'localhost',
+            'user' => 'blah',
+            'pass' => 'blah',
+            'dbname' => 'ihe-sole',
         ],
     ],
 ];
