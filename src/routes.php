@@ -19,14 +19,15 @@ $app->post('/bulk-syslog-events', function (Request $request, Response $response
     $this->logger->info("Invoked '/bulk-syslog-events' route");
     
     // validate HTTP headers
-    $contentType = $this->request->headers->get('Content-Type');
-    $accept = $this->request->headers->get('Accept');
+    $contentType = $request->getHeaderLine('Content-Type');
+    $accept = $request->getHeaderLine('Accept');
     if( $contentType != 'application/json' || $accept != 'application/json' )
     {
         return $response->withStatus(400, "Content-Type and Accept headers both must have a value of application/json");
     }
-    
-    $rawSubmission = $request->getParsedBody();
+
+    $rawSubmission = $request->getBody()->getContents();
+    $this->logger->info("rawSubmission: ". var_export($rawSubmission,1));
     $json = json_decode($rawSubmission, true);
     if( $json == null )
     {
@@ -34,14 +35,14 @@ $app->post('/bulk-syslog-events', function (Request $request, Response $response
     }
     
     try {
-        (new IHESole($app->db, $app->logger))->storeBulkEvents($json, $rawSubmission);
+        (new IHESole($this->db, $this->logger))->storeBulkEvents($json, $rawSubmission);
         
     } catch( BadMethodCallException $e ) { // BadMethodCallException signals an exception that is OK to communicate to the end user
-        $app->logger->warn("Caught Exception, message is ".$exception->getMessage());
-        return $response->withStatus(400, $exception->getMessage());
+        $this->logger->warn("Caught Exception, message is ".$e->getMessage());
+        return $response->withStatus(400, $e->getMessage());
   
     } catch( Exception $e ) { // all other types of exceptions are assumed not OK to communicate to the user
-        $app->logger->warn("Caught Exception, message is ".$exception->getMessage());
+        $this->logger->warn("Caught Exception, message is ".$e->getMessage());
         return $response->withStatus(500, "Internal server error, check the server logs for more information");
     }
 

@@ -16,7 +16,7 @@
     <column id="COL2" populated="true" UUID="17affbaa-df6d-4611-b981-337e355f172f" autoIncrement="true" autoIncrementSequenceName="event_uid_seq" defaultValue="" name="uid" nullable="0" physicalName="uid" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL3" populated="true" UUID="b5b8651c-c6a0-45b8-a3e1-219329a72020" autoIncrement="false" autoIncrementSequenceName="audit_source_audit_source_uid_seq" defaultValue="" name="audit_source_uid" nullable="1" physicalName="audit_source_uid" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL3" populated="true" UUID="b5b8651c-c6a0-45b8-a3e1-219329a72020" autoIncrement="false" autoIncrementSequenceName="audit_source_audit_source_uid_seq" defaultValue="0" name="audit_source_uid" nullable="1" physicalName="audit_source_uid" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL4" populated="true" UUID="975d807a-5a2b-4374-b8c3-10df5d3fa0be" autoIncrement="false" autoIncrementSequenceName="event_priority_seq" defaultValue="" name="priority" nullable="0" physicalName="priority" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -96,7 +96,7 @@
     <folder id="FOLTAB282" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB284" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX31" populated="true" UUID="52ab7c55-8757-4f90-a967-a4d1714f90d0" clustered="false" name="type_code_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX31" populated="true" UUID="52ab7c55-8757-4f90-a967-a4d1714f90d0" clustered="false" name="type_code_pk" physicalName="type_code_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC32" populated="true" UUID="c4d7a59c-cc9a-4456-bf07-2344535ba492" ascendingOrDescending="UNSPECIFIED" column-ref="COL29" name="uid" physicalName="uid" />
     </index>
     <index id="IDX33" populated="true" UUID="08c6decf-65f7-45f7-8ef9-17b0070ba357" clustered="false" name="type_code_idx" physicalName="type_code_idx" primaryKeyIndex="false" unique="true" >
@@ -146,7 +146,7 @@
     <folder id="FOLTAB412" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB414" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX46" populated="true" UUID="f25e069b-8e7f-48c2-a800-4686efe734ed" clustered="false" name="audit_source_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX46" populated="true" UUID="f25e069b-8e7f-48c2-a800-4686efe734ed" clustered="false" name="audit_source_pk" physicalName="audit_source_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC47" populated="true" UUID="7a0c5e02-8d3f-4cdb-8f4d-c9fe83225869" ascendingOrDescending="UNSPECIFIED" column-ref="COL42" name="uid" physicalName="uid" />
     </index>
     <index id="IDX48" populated="true" UUID="dae09364-a753-410c-bc3c-d7c64129099a" clustered="false" name="source_id_idx" physicalName="source_id_idx" primaryKeyIndex="false" unique="true" >
@@ -194,7 +194,7 @@ functions and not all participated in the event. e.g.,
     <folder id="FOLTAB502" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB504" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX59" populated="true" UUID="ac31d67a-33cb-4eed-bd87-1c3f7f9d1af1" clustered="false" name="machine_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX59" populated="true" UUID="ac31d67a-33cb-4eed-bd87-1c3f7f9d1af1" clustered="false" name="machine_pk" physicalName="machine_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC60" populated="true" UUID="2af4d56d-0e6e-455e-b184-170ed014cd08" ascendingOrDescending="UNSPECIFIED" column-ref="COL51" name="uid" physicalName="uid" />
     </index>
    </folder>
@@ -224,7 +224,7 @@ functions and not all participated in the event. e.g.,
     <folder id="FOLTAB612" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB614" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX67" populated="true" UUID="09b4c9b4-2e50-427a-a85c-d789e4bf4bd0" clustered="false" name="object_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX67" populated="true" UUID="09b4c9b4-2e50-427a-a85c-d789e4bf4bd0" clustered="false" name="object_pk" physicalName="object_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC68" populated="true" UUID="3ca15e04-5b9f-4cc2-8e21-d458444052bc" ascendingOrDescending="UNSPECIFIED" column-ref="COL62" name="uid" physicalName="uid" />
     </index>
    </folder>
@@ -265,7 +265,7 @@ transaction, e.g., NPI (US).</remarks>
     <folder id="FOLTAB692" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB694" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX78" populated="true" UUID="33cdc6c9-31be-4773-8eed-bc7b69a13973" clustered="false" name="person_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX78" populated="true" UUID="33cdc6c9-31be-4773-8eed-bc7b69a13973" clustered="false" name="person_pk" physicalName="person_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC79" populated="true" UUID="8cab36d4-f92e-471f-ae1a-ebdaa34377ab" ascendingOrDescending="UNSPECIFIED" column-ref="COL70" name="uid" physicalName="uid" />
     </index>
    </folder>
@@ -294,7 +294,7 @@ transaction, e.g., NPI (US).</remarks>
     <folder id="FOLTAB802" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB804" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX86" populated="true" UUID="83a6b187-5154-4939-a3b8-e130dc633519" clustered="false" name="resource_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX86" populated="true" UUID="83a6b187-5154-4939-a3b8-e130dc633519" clustered="false" name="resource_pk" physicalName="resource_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC87" populated="true" UUID="247d968d-c28c-4b55-8441-3440887b4df9" ascendingOrDescending="UNSPECIFIED" column-ref="COL81" name="uid" physicalName="uid" />
     </index>
    </folder>
@@ -334,7 +334,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB882" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB884" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX95" populated="true" UUID="ef21f0f9-8f35-4dc8-b3af-d94a8bf9d6ba" clustered="false" name="location_pk" physicalName="patient_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX95" populated="true" UUID="ef21f0f9-8f35-4dc8-b3af-d94a8bf9d6ba" clustered="false" name="location_pk" physicalName="location_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC96" populated="true" UUID="c6d8440d-bc56-4b91-85b7-684d1c928797" ascendingOrDescending="UNSPECIFIED" column-ref="COL89" name="uid" physicalName="uid" />
     </index>
    </folder>
@@ -407,7 +407,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB1122" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1124" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX115" populated="true" UUID="0345a5b6-82e9-449e-aedb-f1f873c0bdbc" clustered="false" name="event_person_map_pk" physicalName="event_a_map_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX115" populated="true" UUID="0345a5b6-82e9-449e-aedb-f1f873c0bdbc" clustered="false" name="event_person_map_pk" physicalName="event_person_map_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC116" populated="true" UUID="6ece3e73-0adb-4d8e-8bfb-ae034e3fc30d" ascendingOrDescending="UNSPECIFIED" column-ref="COL113" name="event_uid" physicalName="event_uid" />
      <index-column id="IDC117" populated="true" UUID="6029acc8-a39e-433f-bf87-c07a93abf25b" ascendingOrDescending="UNSPECIFIED" column-ref="COL114" name="person_uid" physicalName="person_uid" />
     </index>
@@ -428,7 +428,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB1182" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1184" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX121" populated="true" UUID="be644ece-a77f-45fc-9875-aac61f64fcbc" clustered="false" name="event_object_map_pk" physicalName="event_a_map_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX121" populated="true" UUID="be644ece-a77f-45fc-9875-aac61f64fcbc" clustered="false" name="event_object_map_pk" physicalName="event_object_map_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC122" populated="true" UUID="aea8a2df-dcd3-4e69-99a5-0c4e9eb25c3b" ascendingOrDescending="UNSPECIFIED" column-ref="COL119" name="event_uid" physicalName="event_uid" />
      <index-column id="IDC123" populated="true" UUID="5f5562d3-c2c0-4de2-b303-e006f04468e0" ascendingOrDescending="UNSPECIFIED" column-ref="COL120" name="object_uid" physicalName="object_uid" />
     </index>
@@ -449,7 +449,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB1242" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1244" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX127" populated="true" UUID="ca9d6694-0a09-4f73-b54a-8db6e4214636" clustered="false" name="event_resource_map_pk" physicalName="event_a_map_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX127" populated="true" UUID="ca9d6694-0a09-4f73-b54a-8db6e4214636" clustered="false" name="event_resource_map_pk" physicalName="event_resource_map_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC128" populated="true" UUID="22dfd288-19e1-44ce-b22f-898b292bb8a6" ascendingOrDescending="UNSPECIFIED" column-ref="COL125" name="event_uid" physicalName="event_uid" />
      <index-column id="IDC129" populated="true" UUID="3d0dce45-4e65-4b55-97c7-ba5461dd3ad9" ascendingOrDescending="UNSPECIFIED" column-ref="COL126" name="resource_uid" physicalName="resource_uid" />
     </index>
@@ -470,7 +470,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB1302" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1304" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX133" populated="true" UUID="563470a9-8426-4383-83ac-e8b941bda114" clustered="false" name="event_location_map_pk" physicalName="event_a_map_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX133" populated="true" UUID="563470a9-8426-4383-83ac-e8b941bda114" clustered="false" name="event_location_map_pk" physicalName="event_location_map_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC134" populated="true" UUID="3c9448f9-77c5-44f3-841c-f07d07b401f5" ascendingOrDescending="UNSPECIFIED" column-ref="COL131" name="event_uid" physicalName="event_uid" />
      <index-column id="IDC135" populated="true" UUID="b9ed27a1-45aa-4eac-a55f-02db5f6e8b44" ascendingOrDescending="UNSPECIFIED" column-ref="COL132" name="location_uid" physicalName="location_uid" />
     </index>
@@ -491,7 +491,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
     <folder id="FOLTAB1362" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB1364" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX139" populated="true" UUID="c0e9a9b8-1357-404a-9235-ed54770a5c92" clustered="false" name="event_patient_map_pk" physicalName="event_a_map_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX139" populated="true" UUID="c0e9a9b8-1357-404a-9235-ed54770a5c92" clustered="false" name="event_patient_map_pk" physicalName="event_patient_map_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC140" populated="true" UUID="6cdd5e22-3556-4663-b172-e6d6df2ddc52" ascendingOrDescending="UNSPECIFIED" column-ref="COL137" name="event_uid" physicalName="event_uid" />
      <index-column id="IDC141" populated="true" UUID="7847f345-953f-4fff-8cda-cf5fc4b9b41b" ascendingOrDescending="UNSPECIFIED" column-ref="COL138" name="patient_uid" physicalName="patient_uid" />
     </index>
@@ -545,10 +545,10 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="0.9999999999999999" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="0.8408964152537144" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="20" y="175" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB28" x="843" y="27" bgColor="0xf0f0f0" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB35" x="404" y="35" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

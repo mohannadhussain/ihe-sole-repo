@@ -16,11 +16,7 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
         
-        'db' => [
-            'host' => 'localhost',
-            'user' => 'blah',
-            'pass' => 'blah',
-            'dbname' => 'ihe-sole',
-        ],
+        // PDO Connection string
+        'db' => 'pgsql:host=localhost;port=5432;dbname=ihesole;user=ihesole;password=ihesole', 
     ],
 ];
