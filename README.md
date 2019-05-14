@@ -1,13 +1,13 @@
-# Reference implementation of the (IHE SOLE)[https://wiki.ihe.net/index.php/Standardized_Operational_Log_of_Events_(SOLE)] Standard
-Built using (PHP)[https://php.net/] v7 and the (SLIM)[http://www.slimframework.com/] v3 framework. 100% Work in progress!
+# Reference implementation of the [IHE SOLE](https://wiki.ihe.net/index.php/Standardized_Operational_Log_of_Events_(SOLE)) Standard
+Built using [PHP](https://php.net/) v7 and the [SLIM](http://www.slimframework.com/) v3 framework. 100% Work in progress!
 
 # Installation instructions
 ## Pre-requisites
-* Web server, e.g. (Apache HTTP Server)[https://httpd.apache.org/] or (NGINX)[https://www.nginx.com/]
+* Web server, e.g. [Apache HTTP Server](https://httpd.apache.org/) or [NGINX](https://www.nginx.com/)
 * Any plug-ins/dependencies necessary for your web server to execute PHP code
-* (Composer)[https://getcomposer.org/] for PHP dependency management
-* (PostgreSQL)[https://www.postgresql.org/] Database - others (e.g. MySQL) may work, but I have not attempted to use them.
-* (SQL Power Architect)[http://www.bestofbi.com/page/architect] to visualize the database schema and export database creation SQL script. The free edition is sufficient for our needs here.
+* [Composer](https://getcomposer.org/) for PHP dependency management
+* [PostgreSQL](https://www.postgresql.org/) Database - others (e.g. MySQL) may work, but I have not attempted to use them.
+* [SQL Power Architect](http://www.bestofbi.com/page/architect) to visualize the database schema and export database creation SQL script. The free edition is sufficient for our needs here.
 
 ## Installation steps
 * In SQL Power Architect, open `db-schema/sole-repo.architect` then click *Tools->Forward Engineer* select *PostgreSQL* as the type then click OK. If you are prompted about any warnings/errors click to Ignore Warnings. Copy the SQL script shown.
