@@ -79,9 +79,14 @@ class IHESole {
         
         // If the message is in XML, then we must process auxiliary objects
         // TODO find a better way to detect XML
-        if( stripos($dbEvent['message'], '"<?xml') !== FALSE )
-        {            
-            $auditMsg = new SimpleXMLElement($dbEvent['message']);
+        if( stripos($dbEvent['message'], '<?xml') !== FALSE )
+        {
+            $this->logger->info("XML message: ".$dbEvent['message']);
+            try {
+                $auditMsg = new SimpleXMLElement($dbEvent['message']);
+            } catch( Exception $e ) {
+                throw new BadMethodCallException("XML message not properly formatted");
+            }
             
             if( $auditMsg->AuditSourceIdentification ) 
             {
@@ -124,13 +129,17 @@ class IHESole {
     
     private function getOrAddAuditSource($auditSource)
     {
-        $code = $this->db->quote(filter_var($auditSource->code, FILTER_SANITIZE_STRING));
-        $sourceId = $this->db->quote(filter_var($auditSource->AuditSourceID, FILTER_SANITIZE_STRING));
-        $enterpriseSiteId = $this->db->quote(filter_var($auditSource->AuditEnterpriseSiteID, FILTER_SANITIZE_STRING));
+        $code = (string) $auditSource['code'];
+        $sourceId = $auditSource['AuditSourceID'];
+        $enterpriseSiteId = (string) $auditSource['AuditEnterpriseSiteID'];
         
-        $stmt = $this->db->query("SELECT uid FROM audit_source 
-            WHERE source_id={$sourceId} AND enterprise_site_id={$enterpriseSiteId} 
-                AND source_type_code={$code};");
+        $sql = sprintf(
+                "SELECT uid FROM audit_source WHERE source_id=%s 
+                    AND enterprise_site_id=%s AND source_type_code=%s;",
+                $this->db->quote(filter_var($sourceId, FILTER_SANITIZE_STRING)),
+                $this->db->quote(filter_var($enterpriseSiteId, FILTER_SANITIZE_STRING)),
+                $this->db->quote(filter_var($code, FILTER_SANITIZE_STRING)));
+        $stmt = $this->db->query($sql);
         $uid = $stmt->fetchColumn(0);
         if( $uid != '' ) return $uid;
         

@@ -38,11 +38,11 @@ $app->post('/bulk-syslog-events', function (Request $request, Response $response
         (new IHESole($this->db, $this->logger))->storeBulkEvents($json, $rawSubmission);
         
     } catch( BadMethodCallException $e ) { // BadMethodCallException signals an exception that is OK to communicate to the end user
-        $this->logger->warn("Caught Exception, message is ".$e->getMessage());
+        $this->logger->warn("Caught BadMethodCallException, message is ".$e->getMessage());
         return $response->withStatus(400, $e->getMessage());
   
     } catch( Exception $e ) { // all other types of exceptions are assumed not OK to communicate to the user
-        $this->logger->warn("Caught Exception, message is ".$e->getMessage());
+        $this->logger->warn("Caught ". get_class($e).", message is ".$e->getMessage());
         return $response->withStatus(500, "Internal server error, check the server logs for more information");
     }
 
