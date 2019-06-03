@@ -3,7 +3,7 @@ Built using [PHP](https://php.net/) v7 and the [SLIM](http://www.slimframework.c
 
 
 # Usage 
-Soon, a copy of this will be hosted by the [SIIM Hackathon](https://siim.org/page/siim_hackathon) for anyone to use with a *free* API key. Otherwise, you can choose to host your own copy by following the installation instructions below.
+Soon, a copy of this will be hosted by the [SIIM Hackathon](https://siim.org/page/siim_hackathon) for anyone to use with a **free** API key. Otherwise, you can choose to host your own copy by following the installation instructions below.
 
 ## Submit bulk events
 POST the JSON representation of your events to `/bulk-syslog-events`. Look in the `samples` directory for some sample events to play with. Example below using curl in BASH:
@@ -32,7 +32,7 @@ You will not get any content back, only HTTP response codes as explained here:
 
 
 ## Installation steps
-* In SQL Power Architect, open `db-schema/sole-repo.architect` then click *Tools->Forward Engineer* select *PostgreSQL* as the type then click OK. If you are prompted about any warnings/errors click to Ignore Warnings. Copy the SQL script shown.
+* In SQL Power Architect, open `db-schema/sole-repo.architect` then click **Tools->Forward Engineer** select **PostgreSQL** as the type then click OK. If you are prompted about any warnings/errors click to Ignore Warnings. Copy the SQL script shown.
 * In your favourite PostgreSQL management tool (`psql`, PhpPgAdmin, PgAdmin...etc), create a new database and user (defaults are ihesole for DB name, username and password). Then past and execute the SQL script from the step above.
 * In the project directory, run `composer install` to download all dependencies
 * Deploy to your web server, which could mean copying/moving the project to the web server, using a symlink or other ways.
