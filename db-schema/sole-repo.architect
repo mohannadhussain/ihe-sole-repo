@@ -55,7 +55,7 @@
     <column id="COL15" populated="true" UUID="9febe4c4-513e-4ac8-b62f-f3239d72600a" autoIncrement="false" autoIncrementSequenceName="event_timestamp_submission_seq" defaultValue="now()" name="timestamp_submission" nullable="0" physicalName="timestamp_submission" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="93" userDefinedTypeUUID="6497d8de-0e00-40d6-a42e-e2adca83be64" >
      <remarks>timestamp of when the message was received by the repository</remarks>
     </column>
-    <column id="COL16" populated="true" UUID="5507ccc4-f399-4589-8d86-73caca1a7ebc" autoIncrement="false" defaultValue="" name="approperiate" nullable="0" physicalName="approperiate" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL16" populated="true" UUID="5507ccc4-f399-4589-8d86-73caca1a7ebc" autoIncrement="false" defaultValue="" name="approperiate" nullable="1" physicalName="approperiate" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -548,7 +548,7 @@ EV(SOLE52, urn:ihe:rad, &quot;Location assigned&quot;)</remarks>
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="0.8408964152537144" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

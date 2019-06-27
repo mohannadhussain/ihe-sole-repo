@@ -186,7 +186,7 @@ CREATE TABLE public.event (
                 message TEXT NOT NULL,
                 raw_submission TEXT NOT NULL,
                 timestamp_submission TIMESTAMP DEFAULT now() NOT NULL,
-                approperiate VARCHAR(10) NOT NULL,
+                approperiate VARCHAR(10),
                 CONSTRAINT event_pk PRIMARY KEY (uid)
 );
 COMMENT ON COLUMN public.event.priority IS 'Called PRI in syslog lingo - the priorit of the message (136 means audit message info level vs. 131 audit message of critical level)';
