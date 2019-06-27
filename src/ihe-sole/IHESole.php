@@ -27,6 +27,7 @@ class IHESole {
         'Procid' => 'process_id',
         'Msg-id' => 'message_id',
         'Msg' => 'message',
+        'Comment' => 'comment',
     );
     
     /**
