@@ -1,18 +1,33 @@
-version: '2'
-
-volumes:
-    logs:
-        driver: local
-
+version: '3'
 services:
-    slim:
-        image: php:7-alpine
-        working_dir: /var/www
+    web:
+        build: ./
+        working_dir: /var/www/html/ihe-sole-repo
         command: php -S 0.0.0.0:8080 -t public
         environment:
             docker: "true"
         ports:
-            - 8080:8080
+            - 80:8080
         volumes:
-            - .:/var/www
-            - logs:/var/www/logs
+            - .:/var/www/html/ihe-sole-repo
+            - ./logs:/var/www/logs
+    composer:
+        image: composer
+        volumes:
+            - .:/app
+        command: install
+    db:
+        image: postgres:10.5
+        restart: always
+        environment:
+            - POSTGRES_DB=ihesole
+            - POSTGRES_USER=ihesole
+            - POSTGRES_PASSWORD=ihesole
+        ports:
+            - 5432:5432
+        volumes:
+            - ./db-schema/sole-repo.sql:/docker-entrypoint-initdb.d/sole-repo.sql
+
+
+            #mod-rewrite ... allow overide for sites enabled ... htaccess
+
