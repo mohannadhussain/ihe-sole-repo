@@ -103,9 +103,9 @@ class IHESole {
         
         // Insert into the DB
         $sql = "INSERT INTO event (audit_source_uid, priority, version, timestamp_message, hostname, 
-                app_name, process_id, message_id, message, raw_submission, outcome_indicator) 
+                app_name, process_id, message_id, comment, message, raw_submission, outcome_indicator) 
             VALUES (:audit_source_uid, :priority, :version, :timestamp_message, :hostname, 
-                :app_name, :process_id, :message_id, :message, :raw_submission, :outcome_indicator);";
+                :app_name, :process_id, :message_id, :comment, :message, :raw_submission, :outcome_indicator);";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':audit_source_uid', $dbEvent['audit_source_uid']);
         $stmt->bindValue(':priority', $dbEvent['priority']);
@@ -115,6 +115,7 @@ class IHESole {
         $stmt->bindValue(':app_name', $dbEvent['app_name']);
         $stmt->bindValue(':process_id', $dbEvent['process_id']);
         $stmt->bindValue(':message_id', $dbEvent['message_id']);
+        $stmt->bindValue(':comment', $dbEvent['comment']);
         $stmt->bindValue(':message', $dbEvent['message']);
         $stmt->bindValue(':raw_submission', $rawSubmission);
         $stmt->bindValue(':outcome_indicator', $dbEvent['outcome_indicator']);
