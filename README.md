@@ -44,4 +44,4 @@ You will not get any content back, only HTTP response codes as explained here:
 Please fork, make changes as appropriate and submit a pull request.
 
 # License
-MIT license - see [LICENSE.md](LICENSE.md) for verbiage.
+MIT license - see [LICENSE](LICENSE) for verbiage.
