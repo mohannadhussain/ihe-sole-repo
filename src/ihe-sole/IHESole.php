@@ -96,7 +96,7 @@ class IHESole {
             
             if( $auditMsg->EventIdentification ) 
             {
-                $dbEvent['outcome_indicator'] = $auditMsg->EventOutcomeIndicator;
+                $dbEvent['outcome_indicator'] = $auditMsg->EventIdentification['EventOutcomeIndicator'];
                 // TODO: Store EventActionCode?!?
             }
         }
@@ -123,9 +123,26 @@ class IHESole {
         $event_uid = $this->db->lastInsertId();
         
         // TODO check for and process auxiliary objects (patient, machine, location..etc)
-        if( $auditMsg != '' ) 
+        if( $auditMsg != null && $auditMsg != '' ) 
         {
+            if( $auditMsg->EventIdentification && $auditMsg->EventIdentification->EventTypeCode ) 
+            {
+                $this->linkUpTypeCode($auditMsg->EventIdentification->EventTypeCode, $event_uid);
+            }
             
+            for( $i=0; $auditMsg->ActiveParticipant && $i < $auditMsg->ActiveParticipant->count(); $i++ )
+            {
+                $curActiveParticipant = $auditMsg->ActiveParticipant[$i];
+                $attributes = $curActiveParticipant->attributes();
+                if( (string) $attributes['NetworkAccessPointID'] != '' ) 
+                {
+                    $this->linkUpMachine($curActiveParticipant, $event_uid);
+                }
+                elseif( (string) $attributes['UserID'] != '' )
+                {
+                    $this->linkUpPerson($curActiveParticipant, $event_uid);
+                }
+            }
         }
     }
     
@@ -154,6 +171,133 @@ class IHESole {
         $result = $stmt->execute();
         
         return $this->db->lastInsertId();
+    }
+    
+    private function getOrAddTypeCode($eventTypeCode)
+    {
+        $typeCode = $eventTypeCode['csd-code'];
+        $sql = sprintf(
+                "SELECT uid FROM type_code WHERE type_code=%s;",
+                $this->db->quote(filter_var($typeCode, FILTER_SANITIZE_STRING)));
+        $stmt = $this->db->query($sql);
+        $uid = $stmt->fetchColumn(0);
+        if( $uid != '' ) return $uid;
+        
+        $codeSystemName = $eventTypeCode['codeSystemName'];
+        $originalText = $eventTypeCode['originalText'];
+        $sql = "INSERT INTO type_code (type_code, code_system_name, original_text) 
+            VALUES (:type_code, :code_system_name, :original_text);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':type_code', $typeCode);
+        $stmt->bindValue(':code_system_name', $codeSystemName);
+        $stmt->bindValue(':original_text', $originalText);
+        $result = $stmt->execute();
+        
+        return $this->db->lastInsertId();
+    }
+    
+    private function linkUpTypeCode($eventTypeCode, $event_uid) 
+    {
+        $type_code_uid = $this->getOrAddTypeCode($eventTypeCode);
+        $sql = "INSERT INTO event_type_code_map (event_uid, type_code_uid) 
+            VALUES (:event_uid, :type_code_uid);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':event_uid', $event_uid);
+        $stmt->bindValue(':type_code_uid', $type_code_uid);
+        $result = $stmt->execute();
+    }
+    
+    private function getOrAddMachine($ActiveParticipant) 
+    {
+        //$this->logger->info(var_export($ActiveParticipant, 1));
+        $roleId = '';
+        $userId = $ActiveParticipant['UserID'];
+        
+        for( $i=0; $ActiveParticipant->RoleIDCode && $i < $ActiveParticipant->RoleIDCode->count(); $i++ )
+        {
+            $curRoleIdCode = $ActiveParticipant->RoleIDCode[$i];
+            if( $curRoleIdCode['codeSystemName'] == 'IHE-SOLE' ) 
+            {
+                $roleId = $curRoleIdCode['csd-code'];
+            }
+        }
+        
+        $sql = sprintf(
+                "SELECT uid FROM machine WHERE user_id=%s AND role_id_code=%s;",
+                $this->db->quote(filter_var($userId, FILTER_SANITIZE_STRING)),
+                $this->db->quote(filter_var($roleId, FILTER_SANITIZE_STRING)));
+        $stmt = $this->db->query($sql);
+        $uid = $stmt->fetchColumn(0);
+        if( $uid != '' ) return $uid;
+        
+        $netTypeCode = $ActiveParticipant['NetworkAccessPointTypeCode'];
+        $netPointId = $ActiveParticipant['NetworkAccessPointID'];
+        $sql = "INSERT INTO machine (user_id, role_id_code, network_access_point_type_code, network_access_point_id) 
+            VALUES (:user_id, :role_id_code, :network_access_point_type_code, :network_access_point_id);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->bindValue(':role_id_code', $roleId);
+        $stmt->bindValue(':network_access_point_type_code', $netTypeCode);
+        $stmt->bindValue(':network_access_point_id', $netPointId);
+        $result = $stmt->execute();
+        
+        return $this->db->lastInsertId();
+    }
+    
+    private function linkUpMachine($ActiveParticipant, $event_uid)
+    {
+        $machine_uid = $this->getOrAddMachine($ActiveParticipant);
+        $sql = "INSERT INTO event_machine_map (event_uid, machine_uid) 
+            VALUES (:event_uid, :machine_uid);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':event_uid', $event_uid);
+        $stmt->bindValue(':machine_uid', $machine_uid);
+        $result = $stmt->execute();
+    }
+    
+    private function getOrAddPerson($ActiveParticipant) 
+    {
+        $roleId = '';
+        $userId = $ActiveParticipant['UserID'];
+        
+        /*for( $i=0; $ActiveParticipant->RoleIDCode && $i < $ActiveParticipant->RoleIDCode->count(); $i++ )
+        {
+            $curRoleIdCode = $ActiveParticipant->RoleIDCode[$i];
+            if( $curRoleIdCode['codeSystemName'] == 'IHE-SOLE' ) 
+            {
+                $roleId = $curRoleIdCode['csd-code'];
+            }
+        }*/
+        
+        $sql = sprintf(
+                "SELECT uid FROM person WHERE user_id=%s;",
+                $this->db->quote(filter_var($userId, FILTER_SANITIZE_STRING)));
+        $stmt = $this->db->query($sql);
+        $uid = $stmt->fetchColumn(0);
+        if( $uid != '' ) return $uid;
+        
+        
+        $user_is_requestor = strtolower($ActiveParticipant['UserIsRequestor']) == 'true' ? true:false;
+        //TODO figure out how to map role codeID, department and shift
+        $sql = "INSERT INTO person (user_id, user_is_requestor) 
+            VALUES (:user_id, :user_is_requestor);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':user_id', $userId);
+        $stmt->bindValue(':user_is_requestor', $user_is_requestor);
+        $result = $stmt->execute();
+        
+        return $this->db->lastInsertId();
+    }
+    
+    private function linkUpPerson($ActiveParticipant, $event_uid)
+    {
+        $person_uid = $this->getOrAddPerson($ActiveParticipant);
+        $sql = "INSERT INTO event_person_map (event_uid, person_uid) 
+            VALUES (:event_uid, :person_uid);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':event_uid', $event_uid);
+        $stmt->bindValue(':person_uid', $person_uid);
+        $result = $stmt->execute();
     }
     
     /**

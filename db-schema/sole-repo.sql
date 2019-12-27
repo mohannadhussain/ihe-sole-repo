@@ -70,8 +70,8 @@ CREATE TABLE public.person (
                 user_id VARCHAR NOT NULL,
                 alt_user_id VARCHAR,
                 user_name VARCHAR,
-                user_is_requestor VARCHAR,
-                role_id_code VARCHAR NOT NULL,
+                user_is_requestor BOOLEAN,
+                role_id_code VARCHAR,
                 department VARCHAR,
                 shift VARCHAR,
                 CONSTRAINT person_pk PRIMARY KEY (uid)
@@ -159,6 +159,8 @@ CREATE SEQUENCE public.type_code_uid_seq;
 CREATE TABLE public.type_code (
                 uid BIGINT NOT NULL DEFAULT nextval('public.type_code_uid_seq'),
                 type_code VARCHAR NOT NULL,
+                code_system_name VARCHAR,
+                original_text VARCHAR,
                 CONSTRAINT type_code_pk PRIMARY KEY (uid)
 );
 

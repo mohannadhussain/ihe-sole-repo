@@ -17,6 +17,6 @@ return [
         ],
         
         // PDO Connection string
-        'db' => 'pgsql:host=db;port=5432;dbname=ihesole;user=ihesole;password=ihesole',
+        'db' => 'pgsql:host=' . (isset($_ENV['docker']) ? 'db':'localhost') . ';port=5432;dbname=ihesole;user=ihesole;password=ihesole',
     ],
 ];

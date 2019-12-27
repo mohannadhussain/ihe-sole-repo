@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuditMessage>
+   <EventIdentification EventDateTime="2016-10-17T15:12:04.287-06:00" EventOutcomeIndicator="0" EventActionCode="E">
+      <EventID csd-code="SOLE" codeSystemName="IHE-RAD" originalText="Imaging Operational Event" />
+      <EventTypeCode csd-code="RID45813" codeSystemName="RadLex" originalText="Order Entered" />
+   </EventIdentification>
+   <ActiveParticipant UserID="EmpID12345678" UserIsRequestor="true">
+      <RoleIDCode csd-code="121096" codeSystemName="DCM" originalText="Ordering Physician" />
+      <!--<Shift 3 />
+    <Department Emergency />
+     -->
+   </ActiveParticipant>
+   <ActiveParticipant UserID="EMR7" UserIsRequestor="false" NetworkAccessPointTypeCode="1" NetworkAccessPointID="125.20.175.12">
+      <RoleIDCode csd-code="110150" codeSystemName="DCM" originalText="Application" />
+      <RoleIDCode csd-code="New07" codeSystemName="IHE-SOLE" originalText="Automated Order Machine" />
+   </ActiveParticipant>
+   <AuditSourceIdentification code="1" AuditEnterpriseSiteID="End User" AuditSourceID="farley.granger@wb.com" />
+   <ParticipantObjectIdentification ParticipantObjectTypeCodeRole="4">
+      <ParticipantObjectIDTypeCode csd-code="363679005" codeSystemName="SNOMED-CT" originalText="Imaging Procedure - Exam" />
+      <!-- <ParticipantObjectID 12345678654321 />
+     -->
+   </ParticipantObjectIdentification>
+   <ParticipantObjectIdentification ParticipantObjectTypeCodeRole="4">
+      <ParticipantObjectIDTypeCode csd-code="363679005121022" codeSystemName="DCM" originalText="Accession Number" />
+      <!-- <ParticipantObjectID 12345678901234 />
+     -->
+   </ParticipantObjectIdentification>
+</AuditMessage>

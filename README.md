@@ -23,7 +23,38 @@ You will not get any content back, only HTTP response codes as explained here:
 
 
 # Installation instructions
-## Pre-requisites
+## Easy method: Docker (thanks to @ctoland) - Good for getting it up and running with minimal work
+Docker and Docker Compose required. Visit docker.com for installation instructions for your platform.
+
+
+## Installation of composer modules.
+
+> Run from base of the repository.
+
+```bash
+docker-compose run composer
+```
+
+## Run the DB and Webserver
+
+> Run from base of the repository.
+
+```bash
+docker-compose up
+```
+
+You may add a -d to run in the background.
+
+## URLs:
+
+http://localhost/bulk-syslog-events
+
+Additional information for the headers for the POST provided in main README.md
+
+
+## Hard method: Full-installation - Good for development/code modification ease
+ 
+### Pre-requisites
 * Web server, e.g. [Apache HTTP Server](https://httpd.apache.org/) or [NGINX](https://www.nginx.com/)
 * Any plug-ins/dependencies necessary for your web server to execute PHP code
 * [Composer](https://getcomposer.org/) for PHP dependency management
@@ -31,7 +62,7 @@ You will not get any content back, only HTTP response codes as explained here:
 * [SQL Power Architect](http://www.bestofbi.com/page/architect) to visualize the database schema and export database creation SQL script. The free edition is sufficient for our needs here.
 
 
-## Installation steps
+### Installation steps
 * In SQL Power Architect, open `db-schema/sole-repo.architect` then click **Tools->Forward Engineer** select **PostgreSQL** as the type then click OK. If you are prompted about any warnings/errors click to Ignore Warnings. Copy the SQL script shown.
 * In your favourite PostgreSQL management tool (`psql`, PhpPgAdmin, PgAdmin...etc), create a new database and user (defaults are ihesole for DB name, username and password). Then past and execute the SQL script from the step above.
 * In the project directory, run `composer install` to download all dependencies

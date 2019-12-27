@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<style>
+      .table {
+        background-color:#F5F5FF;
+        border-left:4px solid gray;
+        border-bottom:4px solid gray;
+        border-top:4px solid gray;
+        border-right:4px solid gray;
+        margin-bottom:3em;
+        margin-left:2em;
+        margin-right:2em;
+        padding:1em;
+      }
+      .tableNameHeading h1 {
+          display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:125%;
+        font-weight:bold;
+      }
+        
+      .tableNameHeading h2 {
+        display: inline;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-size:115%;
+        font-weight:normal;
+      }
+      
+      .tableComment { 
+        background-color:#e4efff; margin-bottom:20px;
+      }
+      
+      .tableDefinition { 
+        padding:2px;
+        border-collapse:collapse;
+        margin-top:1em;
+      }
+
+      .tdTableDefinition {
+        padding-right:10px;
+        vertical-align:top;
+        border-top:1px solid #C0C0C0;
+      }
+
+      .tdLogicalColName {
+        width:20em;
+      }
+      
+      .tdPhysicalColName {
+        width:20em;
+      }
+      
+      .tdDataType {
+        width:10em;
+      }
+
+      .tdPkFlag {
+        width:4em;
+      }
+
+      .tdNullFlag {
+        width:9em;
+      }
+
+      .tdTableHeading {
+        padding:2px;
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+        vertical-align:top;
+        border-bottom: 1px solid #C0C0C0;
+        background-color: rgb(240,240,240);
+      }
+      
+      .subTitle {
+        font-family: Segoe UI, Arial, sans-serif;
+        font-weight: bold;
+      }
+
+      .references {
+      }
+      .comment {
+        color:#666666;
+        margin-left:3em;
+        padding:0.25em;
+      }
+    </style>
+<title>SOLE repo</title>
+</head>
+<body>
+<center>
+<h2>SOLE repo</h2>
+</center>
+<h3>List of tables</h3>
+<ul>
+<li>
+<a href="#audit_source">audit_source</a>
+</li>
+<li>
+<a href="#event">event</a>
+</li>
+<li>
+<a href="#event_location_map">event_location_map</a>
+</li>
+<li>
+<a href="#event_machine_map">event_machine_map</a>
+</li>
+<li>
+<a href="#event_object_map">event_object_map</a>
+</li>
+<li>
+<a href="#event_patient_map">event_patient_map</a>
+</li>
+<li>
+<a href="#event_person_map">event_person_map</a>
+</li>
+<li>
+<a href="#event_resource_map">event_resource_map</a>
+</li>
+<li>
+<a href="#event_type_code_map">event_type_code_map</a>
+</li>
+<li>
+<a href="#location">location</a>
+</li>
+<li>
+<a href="#machine">machine</a>
+</li>
+<li>
+<a href="#object">object</a>
+</li>
+<li>
+<a href="#patient">patient</a>
+</li>
+<li>
+<a href="#person">person</a>
+</li>
+<li>
+<a href="#resource">resource</a>
+</li>
+<li>
+<a href="#type_code">type_code</a>
+</li>
+</ul>
+<div class="tableNameHeading">
+<h1>audit_source<a name="audit_source"></a>
+</h1>
+<h2>
+      (Physical Name: audit_source)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">source_id</td><td class="tdTableDefinition">source_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">enterprise_site_id</td><td class="tdTableDefinition">enterprise_site_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">source_type_code</td><td class="tdTableDefinition">source_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event">event</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event<a name="event"></a>
+</h1>
+<h2>
+      (Physical Name: event)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">audit_source_uid
+                &nbsp;(<a href="#audit_source">FK</a>)
+              </td><td class="tdTableDefinition">audit_source_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">priority</td><td class="tdTableDefinition">priority</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Called PRI in syslog lingo - the priorit of the message (136 means audit message info level vs. 131 audit message of critical level)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">version</td><td class="tdTableDefinition">version</td><td class="tdTableDefinition">INTEGER</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">timestamp_message</td><td class="tdTableDefinition">timestamp_message</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">timestamp as specified in the message by the *originating* application</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">hostname</td><td class="tdTableDefinition">hostname</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Hostname (or IP address) as per the message</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">app_name</td><td class="tdTableDefinition">app_name</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Identification for kind of message. IHE has specified "IHE+SOLE" for SOLE event reports. The event reports from other sources and other profiles will also be retrieved, e.g., "ATNA+3881", if this is not used for filtering.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">process_id</td><td class="tdTableDefinition">process_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Typically a process ID for a syslog process. Used to identify logging discontinuities.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">message_id</td><td class="tdTableDefinition">message_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">SOLE has specified that this will be the SOLE EventTypeCodes, e.g., "RID4585".</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">outcome_indicator</td><td class="tdTableDefinition">outcome_indicator</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">comment</td><td class="tdTableDefinition">comment</td><td class="tdTableDefinition">CLOB</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">message</td><td class="tdTableDefinition">message</td><td class="tdTableDefinition">CLOB</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Stores the raw value of the "message" attribute event, which may be a one-liner brief message or a multi-line XML (for ATNA messages) for example</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">raw_submission</td><td class="tdTableDefinition">raw_submission</td><td class="tdTableDefinition">CLOB</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Stores the raw submission of the event - useful to dump the events and re-create the DB if need be.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">timestamp_submission</td><td class="tdTableDefinition">timestamp_submission</td><td class="tdTableDefinition">TIMESTAMP</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">timestamp of when the message was received by the repository</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">approperiate</td><td class="tdTableDefinition">approperiate</td><td class="tdTableDefinition">VARCHAR(10)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#audit_source">audit_source</a> through (audit_source_uid)</li>
+</ul>
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_type_code_map">event_type_code_map</a> referencing (uid)</li>
+<li>
+<a href="#event_machine_map">event_machine_map</a> referencing (uid)</li>
+<li>
+<a href="#event_person_map">event_person_map</a> referencing (uid)</li>
+<li>
+<a href="#event_object_map">event_object_map</a> referencing (uid)</li>
+<li>
+<a href="#event_resource_map">event_resource_map</a> referencing (uid)</li>
+<li>
+<a href="#event_location_map">event_location_map</a> referencing (uid)</li>
+<li>
+<a href="#event_patient_map">event_patient_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_location_map<a name="event_location_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_location_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">location_uid (PK)
+                &nbsp;(<a href="#location">FK</a>)
+              </td><td class="tdTableDefinition">location_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#location">location</a> through (location_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_machine_map<a name="event_machine_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_machine_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">machine_uid (PK)
+                &nbsp;(<a href="#machine">FK</a>)
+              </td><td class="tdTableDefinition">machine_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#machine">machine</a> through (machine_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_object_map<a name="event_object_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_object_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_uid (PK)
+                &nbsp;(<a href="#object">FK</a>)
+              </td><td class="tdTableDefinition">object_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#object">object</a> through (object_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_patient_map<a name="event_patient_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_patient_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">patient_uid (PK)
+                &nbsp;(<a href="#patient">FK</a>)
+              </td><td class="tdTableDefinition">patient_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#patient">patient</a> through (patient_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_person_map<a name="event_person_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_person_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">person_uid (PK)
+                &nbsp;(<a href="#person">FK</a>)
+              </td><td class="tdTableDefinition">person_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#person">person</a> through (person_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_resource_map<a name="event_resource_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_resource_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">resource_uid (PK)
+                &nbsp;(<a href="#resource">FK</a>)
+              </td><td class="tdTableDefinition">resource_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#resource">resource</a> through (resource_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>event_type_code_map<a name="event_type_code_map"></a>
+</h1>
+<h2>
+      (Physical Name: event_type_code_map)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">event_uid (PK)
+                &nbsp;(<a href="#event">FK</a>)
+              </td><td class="tdTableDefinition">event_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code_uid (PK)
+                &nbsp;(<a href="#type_code">FK</a>)
+              </td><td class="tdTableDefinition">type_code_uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">References</p>
+<ul>
+<li>
+<a href="#event">event</a> through (event_uid)</li>
+<li>
+<a href="#type_code">type_code</a> through (type_code_uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>location<a name="location"></a>
+</h1>
+<h2>
+      (Physical Name: location)
+      </h2>
+<p class="comment">Location participants are locations where events have taken place or activities are scheduled,<br>e.g., "Room 101". There are standard codes for geographic locations and addresses, but not for<br>the internal room naming system within the imaging facility. The location is identified by setting<br>two of the name-value pairs in the ParticipantObjectDetail. A name for the location encoding<br> shall be specified, e.g., "St. Mary&rsquo;s of Boston Clinic Rooms", and the name for the location<br>within that encoding shall be specified, e.g., "Grant CT Suite A".</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"3" (Organization)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"2" (Location)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">EV(SOLE51,urn:ihe:rad,"Location of Event")<br>or<br>EV(SOLE52, urn:ihe:rad, "Location assigned")</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_detail</td><td class="tdTableDefinition">object_detail</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"Location"=&lt;location-value-string&gt;<br>"Location-encoding"=&lt;name-for-location-encoding&gt;</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_location_map">event_location_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>machine<a name="machine"></a>
+</h1>
+<h2>
+      (Physical Name: machine)
+      </h2>
+<p class="comment">Machine participants are machines, software, applications, etc., that actively participate in the<br>event, e.g., Modality or Image Archive.</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">Primary identity of the machine participant, e.g., process<br>ID, AE title, etc.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">alt_user_id</td><td class="tdTableDefinition">alt_user_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">A second identity of the machine participant, e.g., process<br>ID, AE title, etc.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_name</td><td class="tdTableDefinition">user_name</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">not specialized (DICOM PS3.15 Section A.5)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">role_id_code</td><td class="tdTableDefinition">role_id_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">network_access_point_type_code</td><td class="tdTableDefinition">network_access_point_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"1" for machine name, "2" for IP address</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">network_access_point_id</td><td class="tdTableDefinition">network_access_point_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">The machine name (in DNS) or IP address.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">participant_object_detail</td><td class="tdTableDefinition">participant_object_detail</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"Function=&lt;name-of-function&gt;"<br>ParticipantObjectDetail identifies the participating<br>internal functions when the machine has multiple<br>functions and not all participated in the event. e.g.,<br>"Function=CAD", "Function=Joe Algorithm"</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_machine_map">event_machine_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>object<a name="object"></a>
+</h1>
+<h2>
+      (Physical Name: object)
+      </h2>
+<p class="comment">Object Participants are software and conceptual objects, e.g., &ldquo;order&rdquo;, "study" and "report"</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"2" (system object)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">&ldquo;3&rdquo; (Report &ndash; for a study or a report)<br>&ldquo;20&rdquo; (Job &ndash; for an order)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_object_map">event_object_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>patient<a name="patient"></a>
+</h1>
+<h2>
+      (Physical Name: patient)
+      </h2>
+<p class="comment">Patient participants are the patients</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"1" (person)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">&ldquo;1&rdquo; (patient)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_sensitivity</td><td class="tdTableDefinition">object_sensitivity</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">the patient ID in HL7 CX format.</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">EV(121025, DCM, &ldquo;Patient&rdquo;)</div>
+</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_patient_map">event_patient_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>person<a name="person"></a>
+</h1>
+<h2>
+      (Physical Name: person)
+      </h2>
+<p class="comment">Person Participants are staff that actively participate in the event, e.g., Radiologist or<br>Technologist.</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">user_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">One identity of the human that participated in the<br>transaction, e.g., Employee Number</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">alt_user_id</td><td class="tdTableDefinition">alt_user_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">A second identity of the human that participated in the<br>transaction, e.g., NPI (US).</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_name</td><td class="tdTableDefinition">user_name</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">not specialized (DICOM PS3.15 Section A.5)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">user_is_requestor</td><td class="tdTableDefinition">user_is_requestor</td><td class="tdTableDefinition">BOOLEAN</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">not specialized (DICOM PS3.15 Section A.5)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">role_id_code</td><td class="tdTableDefinition">role_id_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">department</td><td class="tdTableDefinition">department</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">shift</td><td class="tdTableDefinition">shift</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_person_map">event_person_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>resource<a name="resource"></a>
+</h1>
+<h2>
+      (Physical Name: resource)
+      </h2>
+<p class="comment">Resource participants are rooms, assigned machines, etc. that are the objects of actions.</p>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="comment">"2" (system object)</div>
+</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">type_code_role</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">object_id</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">object_id_type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_resource_map">event_resource_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+<div class="tableNameHeading">
+<h1>type_code<a name="type_code"></a>
+</h1>
+<h2>
+      (Physical Name: type_code)
+      </h2>
+</div>
+<div class="table">
+<table class="tableDefinition" width="100%">
+<tr>
+<td class="tdTableHeading tdLogicalColName">Logical Column Name</td><td class="tdTableHeading tdPhysicalColName">Physical Column Name</td><td class="tdTableHeading tdDataType">Type</td><td class="tdTableHeading tdPkFlag">PK</td><td class="tdTableHeading tdNullFlag">Nullable</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">uid (PK)</td><td class="tdTableDefinition">uid</td><td class="tdTableDefinition">BIGINT</td><td class="tdTableDefinition" nowrap>PK</td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">type_code</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap>NOT NULL</td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">code_system_name</td><td class="tdTableDefinition">code_system_name</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+<tr valign="top">
+<td class="tdTableDefinition">original_text</td><td class="tdTableDefinition">original_text</td><td class="tdTableDefinition">VARCHAR(0)</td><td class="tdTableDefinition" nowrap></td><td class="tdTableDefinition" nowrap></td>
+</tr>
+</table>
+<div class="references">
+<p class="subTitle">Referenced By</p>
+<ul>
+<li>
+<a href="#event_type_code_map">event_type_code_map</a> referencing (uid)</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

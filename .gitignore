@@ -1,1 +1,4 @@
 vendor
+nbproject/
+logs/app.log
+db-schema/sole-repo.architect~
