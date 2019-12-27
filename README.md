@@ -27,7 +27,7 @@ You will not get any content back, only HTTP response codes as explained here:
 Docker and Docker Compose required. Visit docker.com for installation instructions for your platform.
 
 
-## Installation of composer modules.
+### Installation of composer modules.
 
 > Run from base of the repository.
 
@@ -35,7 +35,7 @@ Docker and Docker Compose required. Visit docker.com for installation instructio
 docker-compose run composer
 ```
 
-## Run the DB and Webserver
+### Run the DB and Webserver
 
 > Run from base of the repository.
 
@@ -45,7 +45,7 @@ docker-compose up
 
 You may add a -d to run in the background.
 
-## URLs:
+### URLs:
 
 http://localhost/bulk-syslog-events
 
